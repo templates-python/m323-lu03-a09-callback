@@ -13,20 +13,25 @@ class GreetingApp:
         Args:
         - root (tk.Tk): Das Hauptfenster der Anwendung.
         """
-        # TODO: Titel setzen und in root in self.root speichern
+        self.root = root
+        self.root.title("Begrüßungs-App")
 
         # Label-Widget, das den Benutzer auffordert, seinen Namen einzugeben
-        #TODO
+        self.label = tk.Label(root, text="Geben Sie Ihren Namen ein:")
+        self.label.pack(pady=20)
 
         # Eingabefeld-Widget (Entry-Widget) für den Namen des Benutzers
-        # TODO
+        self.entry = tk.Entry(root)
+        self.entry.pack(pady=20)
 
         # Label-Widget für die Begrüßungsnachricht
         # Zu Beginn wird kein Text angezeigt
-        # TODO
+        self.greeting_label = tk.Label(root, text="")
+        self.greeting_label.pack(pady=20)
 
         # Button-Widget, das die greet_user-Methode aufruft, wenn es geklickt wird
-        # TODO
+        self.button = tk.Button(root, text="Begrüßen", command=self.greet_user)
+        self.button.pack(pady=20)
 
     def greet_user(self):
         """
@@ -34,12 +39,13 @@ class GreetingApp:
         Sie liest den Namen aus dem Eingabefeld aus und zeigt eine Begrüßungsnachricht unterhalb des Buttons an.
         """
         # Den eingegebenen Namen aus dem Entry-Widget holen
-        # TODO
-        # Begrüßungsnachricht generieren
-        # TODO
-        # Die Begrüßungsnachricht im Label-Widget anzeigen
-        # TODO
+        name = self.entry.get()
 
+        # Begrüßungsnachricht generieren
+        greeting = f"Hallo, {name}!"
+
+        # Die Begrüßungsnachricht im Label-Widget anzeigen
+        self.greeting_label.config(text=greeting)
 
 if __name__ == '__main__':
     # Hauptfenster des GUI erstellen
