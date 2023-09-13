@@ -13,7 +13,7 @@ class GreetingApp:
         Args:
         - root (tk.Tk): Das Hauptfenster der Anwendung.
         """
-
+        # TODO: Titel setzen und in root in self.root speichern
 
         # Label-Widget, das den Benutzer auffordert, seinen Namen einzugeben
         #TODO
@@ -34,10 +34,12 @@ class GreetingApp:
         Sie liest den Namen aus dem Eingabefeld aus und zeigt eine Begrüßungsnachricht unterhalb des Buttons an.
         """
         # Den eingegebenen Namen aus dem Entry-Widget holen
-
+        # TODO
         # Begrüßungsnachricht generieren
-
+        # TODO
         # Die Begrüßungsnachricht im Label-Widget anzeigen
+        # TODO
+
 
 if __name__ == '__main__':
     # Hauptfenster des GUI erstellen
