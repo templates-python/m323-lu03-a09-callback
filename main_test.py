@@ -1,7 +1,7 @@
 # test_greeting_app.py
 
 import pytest
-from main import GreetingApp
+
 
 # Mock für das Hauptfenster von tkinter
 @pytest.fixture
@@ -11,12 +11,20 @@ def mock_tk(mocker):
     mock.children = {}  # Hinzufügen des 'children'-Attributs
     return mock
 
+
 # Mock für den Button von tkinter
 @pytest.fixture
 def mock_button(mocker):
     return mocker.patch('tkinter.Button', autospec=True, create=True)()
 
+
 def test_greet_user(mock_tk, mock_button, mocker):
+    # Mock the entire tkinter module
+    mocker.patch('main.tk', mocker.MagicMock())
+
+    # Now import the GreetingApp class
+    from main import GreetingApp
+
     mocker.patch('tkinter.Label', autospec=True, create=True)
     mocker.patch('tkinter.Entry', autospec=True, create=True)
     app = GreetingApp(mock_tk)
