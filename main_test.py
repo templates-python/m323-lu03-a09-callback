@@ -1,27 +1,39 @@
-import unittest
+# test_greeting_app.py
+
+import pytest
 from main import GreetingApp
-import tkinter as tk
 
+# Mock für das Hauptfenster von tkinter
+@pytest.fixture
+def mock_tk(mocker):
+    mock = mocker.patch('tkinter.Tk', autospec=True, create=True)()
+    mock.tk = mocker.MagicMock()  # Hinzufügen des 'tk'-Attributs
+    mock.children = {}  # Hinzufügen des 'children'-Attributs
+    return mock
 
-class TestGreetingApp(unittest.TestCase):
+# Mock für den Button von tkinter
+@pytest.fixture
+def mock_button(mocker):
+    return mocker.patch('tkinter.Button', autospec=True, create=True)()
 
-    def setUp(self):
-        self.root = tk.Tk()
-        self.app = GreetingApp(self.root)
+def test_greet_user(mock_tk, mock_button, mocker):
+    mocker.patch('tkinter.Label', autospec=True, create=True)
+    mocker.patch('tkinter.Entry', autospec=True, create=True)
+    app = GreetingApp(mock_tk)
 
-    def tearDown(self):
-        self.root.destroy()
+    # Finden des richtigen Entry-Widgets und Mocken der get-Methode
+    for attr in dir(app):
+        widget = getattr(app, attr)
+        if isinstance(widget, mocker.MagicMock) and widget._mock_name == 'Entry':
+            mocker.patch.object(widget, 'get', return_value="Alice")
+            break
 
-    def test_greet_user(self):
-        # Setze den Namen im Eingabefeld
-        self.app.entry.insert(0, "John")
+    # Die greet_user-Methode aufrufen
+    app.greet_user()
 
-        # Rufe die Callback-Funktion auf
-        self.app.greet_user()
-
-        # Überprüfe, ob die Begrüßungsnachricht korrekt angezeigt wird
-        self.assertEqual(self.app.greeting_label.cget("text"), "Hallo, John!")
-
-
-if __name__ == '__main__':
-    unittest.main()
+    # Überprüfen, ob das Label-Widget korrekt aktualisiert wurde
+    for attr in dir(app):
+        widget = getattr(app, attr)
+        if isinstance(widget, mocker.MagicMock) and widget._mock_name == 'Label':
+            widget.config.assert_called_with(text="Hallo, Alice!")
+            break
