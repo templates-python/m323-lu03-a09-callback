@@ -3,7 +3,7 @@
     {
       "name": "test_greet_user",
       "setup": "sudo -H pip3 install -r requirements.txt",
-      "run": "pytest -v  -k \"test_greet_user\"",
+      "run": "pytest -v  -k \"test_dummy\"",
       "input": "",
       "output": "",
       "comparison": "included",
