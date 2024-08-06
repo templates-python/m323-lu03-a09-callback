@@ -1,0 +1,8 @@
+[
+  {
+    "name": "test_greet_user",
+    "function": "test_greet_user",
+    "timeout": 10,
+    "points": 1
+  }
+]
