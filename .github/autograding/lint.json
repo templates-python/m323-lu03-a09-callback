@@ -1,6 +1,5 @@
 {
   "files": [
-    "conftest.py",
     "main.py"
   ],
   "ignore": [],
