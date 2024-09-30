@@ -1,5 +1,6 @@
 import tkinter as tk
 
+
 class GreetingApp:
     """
     Eine einfache GUI-Anwendung, die es einem Benutzer ermöglicht, seinen Namen in ein Eingabefeld einzugeben.
@@ -16,7 +17,7 @@ class GreetingApp:
         # TODO: Titel setzen und in root in self.root speichern
 
         # Label-Widget, das den Benutzer auffordert, seinen Namen einzugeben
-        #TODO
+        # TODO
 
         # Eingabefeld-Widget (Entry-Widget) für den Namen des Benutzers
         # TODO
