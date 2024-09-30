@@ -1,5 +1,6 @@
 import tkinter as tk
 
+
 class GreetingApp:
     """
     Eine einfache GUI-Anwendung, die es einem Benutzer ermöglicht, seinen Namen in ein Eingabefeld einzugeben.
@@ -47,7 +48,8 @@ class GreetingApp:
         # Die Begrüßungsnachricht im Label-Widget anzeigen
         self.greeting_label.config(text=greeting)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     # Hauptfenster des GUI erstellen
     root = tk.Tk()
 
