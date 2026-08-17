@@ -49,10 +49,10 @@ class GreetingApp:
 
 if __name__ == '__main__':
     # Hauptfenster des GUI erstellen
-    root = tk.Tk()
+    window = tk.Tk()
 
     # Instanz der GreetingApp-Klasse erstellen
-    app = GreetingApp(root)
+    app = GreetingApp(window)
 
     # GUI-Event-Loop starten
-    root.mainloop()
+    window.mainloop()
