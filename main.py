@@ -1,3 +1,8 @@
+"""GUI-Interaktion mit Callbacks in tkinter.
+
+Aufgabenstellung: https://wiki.bzz.ch/modul/m323/learningunits/lu03/aufgaben/callback
+"""
+
 import tkinter as tk
 
 
@@ -51,10 +56,10 @@ class GreetingApp:
 
 if __name__ == "__main__":
     # Hauptfenster des GUI erstellen
-    root = tk.Tk()
+    demo_root = tk.Tk()
 
     # Instanz der GreetingApp-Klasse erstellen
-    app = GreetingApp(root)
+    app = GreetingApp(demo_root)
 
     # GUI-Event-Loop starten
-    root.mainloop()
+    demo_root.mainloop()
