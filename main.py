@@ -1,3 +1,8 @@
+"""GUI-Interaktion mit Callbacks in tkinter.
+
+Aufgabenstellung: https://wiki.bzz.ch/modul/m323/learningunits/lu03/aufgaben/callback
+"""
+
 import tkinter as tk
 
 
